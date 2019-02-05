@@ -2,14 +2,19 @@ package com.example.SpringBoot.Cidades;
 
 import java.util.Optional;
 
+import javax.tools.JavaFileObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fasterxml.jackson.databind.util.JSONPObject;
 
 @Controller
 @CrossOrigin
@@ -21,13 +26,10 @@ public class CidadesController {
 
 //	Gravar as cidades	
 	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody String AddNewCidade(@RequestParam String cidade, @RequestParam String estado) {
-		Cidades n = new Cidades();
-		n.setNmCidade(cidade);
-		n.setSgEstado(estado);
-		cidadeProperty.save(n);
-		System.out.println("teste");
-		return "ok";
+	public @ResponseBody String AddNewCidade(@RequestBody String payload) throws Exception {
+		 JSONPObject my_obj = new JSONPObject(payload, payload);
+		return payload;
+		
 	}
 
 //	listar Todos os campos das cidades
