@@ -10,8 +10,16 @@ public class Cidades {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+//	public void Cidades(Integer id, String nmCidade, String sgEstado){
+//		this.id = id;
+//		this.nmCidade = nmCidade;
+//		this.sgEstado = sgEstado;
+//	}
+//	@JsonProperty("id")
 	private Integer id;
+//	@JsonProperty("nmCidade")
 	private String nmCidade;
+//	@JsonProperty("sgEstado")
 	private String sgEstado;
 
 	public Integer getId() {
