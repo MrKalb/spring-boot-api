@@ -5,21 +5,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Cidades {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-//	public void Cidades(Integer id, String nmCidade, String sgEstado){
-//		this.id = id;
-//		this.nmCidade = nmCidade;
-//		this.sgEstado = sgEstado;
-//	}
-//	@JsonProperty("id")
+	
+	@JsonProperty("id")
 	private Integer id;
-//	@JsonProperty("nmCidade")
+	
+	@JsonProperty("nmCidade")
 	private String nmCidade;
-//	@JsonProperty("sgEstado")
+	
+	@JsonProperty("sgEstado")
 	private String sgEstado;
 
 	public Integer getId() {
