@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/Cidades")
+@RequestMapping(value = "/cidades")
 public class ApiMapping {
 	
 	@Autowired
@@ -20,9 +20,9 @@ public class ApiMapping {
 	
 //	pegar todas as Cidades
 	@GetMapping
-    public List<Cidades> getCidades() {
+    public ResponseEntity<List<Cidades>> getCidades() {
 		System.out.println("teste");
-        return cidadesController.getCidades();
+        return ResponseEntity.ok(cidadesController.getCidades());
     }
 
 //gravar as Cidades No Banco
@@ -31,4 +31,8 @@ public class ApiMapping {
 		return cidadesController.addCidades(cidades);
 	}
 
+	public ResponseEntity<Void> atu(@RequestBody Cidades cidade) {
+		
+	}
+	
 }
